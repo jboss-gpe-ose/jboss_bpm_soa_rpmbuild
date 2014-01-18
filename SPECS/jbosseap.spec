@@ -20,11 +20,11 @@ Source0:        jboss-eap-6.1.1.zip
 
 %install
 rm -rf $RPM_BUILD_ROOT
-mkdir -p $RPM_BUILD_ROOT/opt
-unzip %{SOURCE0} -d $RPM_BUILD_ROOT/opt
+mkdir -p $RPM_BUILD_ROOT/opt/jboss_bpm_soa
+unzip %{SOURCE0} -d $RPM_BUILD_ROOT/opt_bpm_soa
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
-/opt/*
+/opt/jboss_bpm_soa/*
