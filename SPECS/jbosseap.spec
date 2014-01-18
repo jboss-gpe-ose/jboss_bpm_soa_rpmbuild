@@ -1,4 +1,4 @@
-Name:           jbosseap_soa_ose
+Name:           jbosseap_bpm_soa
 Version:        6.1.1
 Release:        1%{?dist}
 Summary:        JBoss EAP 6.1.1 used specifically to support BPMS6 and FSW for Openshift Enterprise
