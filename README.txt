@@ -1,5 +1,6 @@
 Purpose
-  - JBoss EAP 6 used specifically to support Red Hat JBoss BPMS, BRMS and FSW.
+  - Software package management of JBoss Enterprise Application Platform v6 on Red Hat Enterprise Linux (RHEL)
+  - This version of JBoss EAP 6 used specifically to support Red Hat JBoss BPMS, BRMS and FSW.
   - This RPM targets BPMS, BRMS and FSW in both OSE and traditional non-cloud, RHEL environments
 
 Problem
