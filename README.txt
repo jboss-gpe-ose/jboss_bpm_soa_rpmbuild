@@ -7,37 +7,37 @@ Problems
   1) The jbappplatform channel of RHN contains JBoss EAP RPMs.
     - The RPMs in the jbappplatform channel continously evolve and sys admins are free to upgrade thier environments as these upgrades to JBoss are released.
     - Red Hat / JBoss BPMS and FSW have a hard-dependency on JBoss EAP 6.1.1, specifically.
-  2) Lack of JBoss EAP maven repositories
-    - The jbappplatform channel of RHN does not contain the off-line maven
-      repository.  Although maven is traditionally used as a build tool during
-      development, it's beginning to be used at runtime as well.  An example
-      of this with BPMS6.  Red Hat does provide on-line Maven repositories of
-      its supported mavenized libraries.  However, most production
-      environments are cut off from access to the internet.
+  2) Lack of JBoss EAP off-line maven repository
+    - Although maven is traditionally used as a build tool during development, it's beginning to be used at runtime as well.
+    - An example of a Red Hat product that now uses maven at runtime is:  BPMS6.
+    - Red Hat does provide on-line Maven repositories of its supported mavenized libraries.
+    - However, most production environments are cut off from access to the internet.
+    - Thus the need for the "off-line" EAP maven repository.
+    - The jbappplatform channel of RHN does not contain the off-line maven repository.
 
 Alternatives
   1)  Use RPMs via jbappplatform channel
     - Its technically feasible that a system administrator could elect to install the version of JBoss EAP required to support BPMS and FSW
     - Once installed, the system administrator could elect never to upgrade as new versions of EAP are made available in RHN
-    - This approach becomes problematic attempting to support  different JBoss EAP derived products (ie:  bpms, brms, fsw)  on the same OS (ie:  OSE) 
+    - This approach becomes problematic attempting to support different JBoss EAP derived products (ie:  bpms, brms, fsw)  on the same 
+      operating system. (ie:  Openshift Enterprise).
+    - This approach also does not address use cases where a local JBoss EAP maven repository is needed on the operating system.
 
   2)  Don't use RPMs
     - Sys admins can also install FSW, BPMS and BRMS using the conventional zip downloads available from the Customer Support Portal
-    - Even for OSE, it's technically feasible that RPMs to support BPMS, BRMS and FSW.
-        - In particular, all functionality could be packaged as a 'downloadable' cartridge
-        - ie, a BPMS6 downloadable cartridge would bundle:
-            1)  JBoss EAP 6
-            2)  BPMS6 modules
-            3)  BPMS6 runtime web artifacts
-        - The problem with this approach is :
-            1)  size of download makes for a long, network intensive experience to provision an OSE application
-            2)  once downloaded, the size of the contents included in this cartridge count against cgroups disk quota allocated by OSE
+    - Even for OSE, some (more-lightweight) types of cartridges can be packaged and distributed as:  "downloadable"
+    - The problem with this approach is :
+          1)  size of download makes for a long, network intensive experience to provision an OSE application
+          2)  once downloaded, the size of the contents included in this cartridge count against cgroups disk quota allocated by OSE
+    - Subsequently, this approach is impractical for OSE environments hosting typical JBoss payloads such BPMS and FSW.
+    - This approach also does not address use cases where a local JBoss EAP maven repository is needed on the operating system.
 
 
 
 Solution
   - The purpose of this RPM is to package the specific version of JBoss EAP to support BPMS, BRMS and FSW.
   - When installed, this RPM will place JBoss EAP in:  /opt/jboss-bpm-soa/jboss-eap-6.1 .
+  - Also, this RPM will place the supported offline JBoss EAP maven repository in:  /opt/jboss-bpm-soa/jboss-eap-6.1.1-GA-maven-repository
   - No other files are installed via this RPM anywhere else on the operating system
   - This JBoss EAP will not conflict with the JBoss EAP from the jbappplatform in any way, either at installation nor at runtime.
   - A 5G /opt partition is sufficient to support this RPM along with BPMS, FSW RPMs that layer on top
