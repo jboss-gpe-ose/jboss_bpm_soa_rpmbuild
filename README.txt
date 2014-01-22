@@ -33,6 +33,7 @@ Solution
   - When installed, this RPM will place JBoss EAP in:  /opt/jboss-bpm-soa/jboss-eap-6.1 .
   - No other files are installed via this RPM anywhere else on the operating system
   - This JBoss EAP will not conflict with the JBoss EAP from the jbappplatform in any way, either at installation nor at runtime.
+  - A 5G /opt partition is sufficient to support this RPM along with BPMS, FSW RPMs that layer on top
 
 
 
@@ -65,6 +66,5 @@ Build Procedure
   - sudo rpm -e jbosseap
 
  TO-DO
- 1)  change name to something more specific
- 2)  add pre & post installs
- 3)  add documentation to /usr/share/doc 
+ 1)  add pre & post installs
+ 2)  add documentation to /usr/share/doc 
