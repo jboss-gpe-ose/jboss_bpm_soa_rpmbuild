@@ -3,10 +3,17 @@ Purpose
   - This version of JBoss EAP 6 used specifically to support Red Hat JBoss BPMS, BRMS and FSW.
   - This RPM targets BPMS, BRMS and FSW in both OSE and traditional non-cloud, RHEL environments
 
-Problem
-  - The jbappplatform channel of RHN contains JBoss EAP RPMs.
-  - The RPMs in the jbappplatform channel continously evolve and sys admins are free to upgrade thier environments as these upgrades to JBoss are released.
-  - Red Hat / JBoss BPMS and FSW have a hard-dependency on JBoss EAP 6.1.1, specifically.
+Problems
+  1) The jbappplatform channel of RHN contains JBoss EAP RPMs.
+    - The RPMs in the jbappplatform channel continously evolve and sys admins are free to upgrade thier environments as these upgrades to JBoss are released.
+    - Red Hat / JBoss BPMS and FSW have a hard-dependency on JBoss EAP 6.1.1, specifically.
+  2) Lack of JBoss EAP maven repositories
+    - The jbappplatform channel of RHN does not contain the off-line maven
+      repository.  Although maven is traditionally used as a build tool during
+      development, it's beginning to be used at runtime as well.  An example
+      of this with BPMS6.  Red Hat does provide on-line Maven repositories of
+      its supported mavenized libraries.  However, most production
+      environments are cut off from access to the internet.
 
 Alternatives
   1)  Use RPMs via jbappplatform channel
@@ -57,13 +64,14 @@ Proposed Architecture
 
 Build Procedure
   - clone this project from github
-  - download jboss-eap-6.1.1.zip from the Red Hat Customer Support Portal
+  - download jboss-eap-6.1.1.zip and jboss-eap-6.1.1-maven-repository.zip from the Red Hat Customer Support Portal
   - cd /path/to/this/jboss_bpm_soa_rpmbuild
   - cp /path/to/jboss-eap-6.1.1.zip SOURCES
+  - cp /path/to/jboss-eap-6.1.1-maven-repository.zip SOURCES
   - rpmbuild --define "_sourcedir `pwd`/SOURCES" -ba SPECS/jboss_bpm_soa.spec
   - rpm -qlp ~/rpmbuild/RPMS/x86_64/jboss_bpm_soa-6.1.1-1.el6.x86_64.rpm
   - sudo rpm -ivh ~/rpmbuild/RPMS/x86_64/jboss_bpm_soa-6.1.1-1.el6.x86_64.rpm
-  - sudo rpm -e jbosseap
+  - sudo rpm -e jboss_bpm_soa
 
  TO-DO
  1)  add pre & post installs
