@@ -6,14 +6,7 @@ Purpose
 Problems
   1) The jbappplatform channel of RHN contains JBoss EAP RPMs.
     - The RPMs in the jbappplatform channel continously evolve and sys admins are free to upgrade thier environments as these upgrades to JBoss are released.
-    - Red Hat / JBoss BPMS and FSW have a hard-dependency on JBoss EAP 6.1.1, specifically.
-  2) Lack of JBoss EAP off-line maven repository
-    - Although maven is traditionally used as a build tool during development, it's beginning to be used at runtime as well.
-    - An example of a Red Hat product that now uses maven at runtime is:  BPMS6.
-    - Red Hat does provide on-line Maven repositories of its supported mavenized libraries.
-    - However, most production environments are cut off from access to the internet.
-    - Thus the need for the "off-line" EAP maven repository.
-    - The jbappplatform channel of RHN does not contain the off-line maven repository.
+    - Red Hat / JBoss BPMS and FSW have a hard-dependency on JBoss EAP 6.1.1.
 
 Alternatives
   1)  Use RPMs via jbappplatform channel
@@ -21,7 +14,6 @@ Alternatives
     - Once installed, the system administrator could elect never to upgrade as new versions of EAP are made available in RHN
     - This approach becomes problematic attempting to support different JBoss EAP derived products (ie:  bpms, brms, fsw)  on the same 
       operating system. (ie:  Openshift Enterprise).
-    - This approach also does not address use cases where a local JBoss EAP maven repository is needed on the operating system.
 
   2)  Don't use RPMs
     - Sys admins can also install FSW, BPMS and BRMS using the conventional zip downloads available from the Customer Support Portal
@@ -30,14 +22,11 @@ Alternatives
           1)  size of download makes for a long, network intensive experience to provision an OSE application
           2)  once downloaded, the size of the contents included in this cartridge count against cgroups disk quota allocated by OSE
     - Subsequently, this approach is impractical for OSE environments hosting typical JBoss payloads such BPMS and FSW.
-    - This approach also does not address use cases where a local JBoss EAP maven repository is needed on the operating system.
-
 
 
 Solution
   - The purpose of this RPM is to package the specific version of JBoss EAP to support BPMS, BRMS and FSW.
   - When installed, this RPM will place JBoss EAP in:  /opt/jboss-bpm-soa/jboss-eap-6.1 .
-  - Also, this RPM will place the supported offline JBoss EAP maven repository in:  /opt/jboss-bpm-soa/jboss-eap-6.1.1-GA-maven-repository
   - No other files are installed via this RPM anywhere else on the operating system
   - This JBoss EAP will not conflict with the JBoss EAP from the jbappplatform in any way, either at installation nor at runtime.
   - A 5G /opt partition is sufficient to support this RPM along with BPMS, FSW RPMs that layer on top
@@ -64,10 +53,8 @@ Proposed Architecture
 
 Build Procedure
   - clone this project from github
-  - download jboss-eap-6.1.1.zip and jboss-eap-6.1.1-maven-repository.zip from the Red Hat Customer Support Portal
   - cd /path/to/this/jboss_bpm_soa_rpmbuild
   - cp /path/to/jboss-eap-6.1.1.zip SOURCES
-  - cp /path/to/jboss-eap-6.1.1-maven-repository.zip SOURCES
   - rpmbuild --define "_sourcedir `pwd`/SOURCES" -ba SPECS/jboss_bpm_soa.spec
   - rpm -qlp ~/rpmbuild/RPMS/x86_64/jboss_bpm_soa-6.1.1-1.el6.x86_64.rpm
   - sudo rpm -ivh ~/rpmbuild/RPMS/x86_64/jboss_bpm_soa-6.1.1-1.el6.x86_64.rpm
