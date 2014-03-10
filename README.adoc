@@ -8,18 +8,18 @@
 . Red Hat / JBoss BPMS and FSW have a hard-dependency on JBoss EAP 6.1.1.
 
 == Alternatives
-. Use RPMs via jbappplatform channel but don't upgrade
+. *Use RPMs via jbappplatform channel but don't upgrade*
 ** Its technically feasible that a system administrator could elect to install JBoss EAP 6.1.1 and never upgrade
 ** This would nicely facilitate products such as BPMS, BRMS and FSW that have a hard dependency on this particular version of JBoss EAP.
 ** This approach would be problematic however for other products that prefer either older or more current versions of JBoss EAP6.
 
-. Multiple versions of JBoss EAP installed from RHN channels
+. *Multiple versions of JBoss EAP installed from RHN channels*
 ** OSE engineering is apparently working with JBoss engineering to allow for multiple versions of JBoss EAP to be installed on an OSE node via RHN channels.
 ** so its concievable that at some point, a BPMS or FSW cartridge could specify a hard-dependency on for example:  JBoss EAP 6.1.1. 
 ** In this scenario, JBoss EAP 6.1.1 would be co-located in some manner with other versions of JBoss EAP on the same OSE node.
 ** Not quite sure what the time-line is for this feature to be rolled out in RHEL and Openshift
 
-. Stuff everything in an Openshift "Downloadable" cartridge 
+. *Stuff everything in an Openshift "Downloadable" cartridge*
 ** Openshift supports "downloadable" cartridges.
 ** It is technically possible that this cartridge could bundle both JBoss EAP6.1.1 plus BPMS6
 ** The problem with this approach is :
