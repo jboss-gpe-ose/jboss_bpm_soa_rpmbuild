@@ -60,7 +60,6 @@
 == Build Procedure
 * NOTE:  built RPMs of this and related projects can be found link:http://people.redhat.com/jbride/ose/INSTALL.txt[here]
 * If you are still interested in leveraging this project to build your own RPMs, then the following applies: 
-
 . clone this project from github
 . cd /path/to/this/jboss_bpm_soa_rpmbuild
 . cp /path/to/jboss-eap-6.1.1.zip SOURCES
