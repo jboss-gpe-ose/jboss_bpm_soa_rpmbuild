@@ -15,18 +15,17 @@
 
 . Multiple versions of JBoss EAP installed from RHN channels
 ** OSE engineering is apparently working with JBoss engineering to allow for multiple versions of JBoss EAP to be installed on an OSE node via RHN channels.
-** so its concievable that at some point, this cartridge could specify a hard-dependency on for example:  JBoss EAP 6.1.1. 
+** so its concievable that at some point, a BPMS or FSW cartridge could specify a hard-dependency on for example:  JBoss EAP 6.1.1. 
 ** In this scenario, JBoss EAP 6.1.1 would be co-located in some manner with other versions of JBoss EAP on the same OSE node.
-** This cartridge would layer specifically on JBoss EAP 6.1.1 only.
 ** Not quite sure what the time-line is for this feature to be rolled out in RHEL and Openshift
 
 . Stuff everything in an Openshift "Downloadable" cartridge 
 ** Openshift supports "downloadable" cartridges.
 ** It is technically possible that this cartridge could bundle both JBoss EAP6.1.1 plus BPMS6
 ** The problem with this approach is :
-          1)  size of download makes for a long, network intensive experience to provision an OSE application
-          2)  once downloaded, the size of the contents included in this cartridge count against cgroups disk quota allocated by OSE
-            - one of the goals of this BPMS6 cartridge is to ensure that it fits comfortably in a medium-sized Openshift gear.
+.. size of download makes for a long, network intensive experience to provision an OSE application
+.. once downloaded, the size of the contents included in this cartridge count against cgroups disk quota allocated by OSE
+*** one of the goals of this BPMS6 cartridge is to ensure that it fits comfortably in a medium-sized Openshift gear.
 ** Subsequently, this approach is impractical for OSE environments hosting typical JBoss payloads such BPMS and FSW.
 
 
