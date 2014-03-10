@@ -40,21 +40,21 @@
 
 
 == Proposed Architecture
-  - SOURCES/jboss_bpm_soa_package_mgmt.png provides an illustration of where this RPM fits into a software configuration architecture to support BPMS, BRMS and FSW.
-  - it's proposed that the RPM from this project, jboss_bpm_soa, be included in the existing jbappplatform channel from RHN
-  - the contents of this jboss_bpm_soa rpm install in:  /opt/jboss_bpm_soa
-  - it's also proposed that the following channels be created and maintained in RHN:
-    1)  jboss_brms
-        - if a customer has purchased a subscription to BRMS, then that customer receives entitlements to this channel
-        - this channel will include RPMs that layer BRMS modules into /opt/jboss_bpm_soa/jboss-eap-6.1
-    2)  jboss_bpms
-        - if a customer has purchased a subscription to BPMS, then that customer receives entitlements to this channel
-        - this channel will include RPMs that layer BPMS modules into /opt/jboss_bpm_soa/jboss-eap-6.1
-        - RPMs are also included that contain exploded business-central and dashbuilder web archives
-    3)  jboss_fsw
-        - if a customer has purchased a subscription to FSW, then that customer receives entitlements to this channel
-        - this channel will include RPMs that layer FSW modules into /opt/jboss_bpm_soa/jboss-eap-6.1
-        - RPMs are also included that contain exploded overlord and bpel web archives
+* link:https://raw.github.com/jboss-gpe-ose/jboss_bpm_soa_rpmbuild/master/SOURCES/jboss_bpm_soa_package_mgmt.png[SOURCES/jboss_bpm_soa_package_mgmt.png] provides an illustration of where this RPM fits into a software configuration architecture to support BPMS, BRMS and FSW.
+* it's proposed that the RPM from this project, jboss_bpm_soa, be included in the existing jbappplatform channel from RHN
+* the contents of this jboss_bpm_soa rpm installs in:  /opt/jboss_bpm_soa
+* it's also proposed that the following channels be created and maintained in RHN:
+. jboss_brms
+** if a customer has purchased a subscription to BRMS, then that customer receives entitlements to this channel
+** this channel will include RPMs that layer BRMS modules into /opt/jboss_bpm_soa/jboss-eap-6.1
+.  jboss_bpms
+** if a customer has purchased a subscription to BPMS, then that customer receives entitlements to this channel
+** this channel will include RPMs that layer BPMS modules into /opt/jboss_bpm_soa/jboss-eap-6.1
+** RPMs are also included that contain exploded business-central and dashbuilder web archives
+.  jboss_fsw
+** if a customer has purchased a subscription to FSW, then that customer receives entitlements to this channel
+** this channel will include RPMs that layer FSW modules into /opt/jboss_bpm_soa/jboss-eap-6.1
+** RPMs are also included that contain exploded overlord and bpel web archives
 
 
 Build Procedure
