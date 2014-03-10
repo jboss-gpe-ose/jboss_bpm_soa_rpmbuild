@@ -57,15 +57,17 @@
 ** RPMs are also included that contain exploded overlord and bpel web archives
 
 
-Build Procedure
-  - clone this project from github
-  - cd /path/to/this/jboss_bpm_soa_rpmbuild
-  - cp /path/to/jboss-eap-6.1.1.zip SOURCES
-  - rpmbuild --define "_sourcedir `pwd`/SOURCES" -ba SPECS/jboss_bpm_soa.spec
-  - rpm -qlp ~/rpmbuild/RPMS/x86_64/jboss_bpm_soa-6.1.1-1.el6.x86_64.rpm
-  - sudo rpm -ivh ~/rpmbuild/RPMS/x86_64/jboss_bpm_soa-6.1.1-1.el6.x86_64.rpm
-  - sudo rpm -e jboss_bpm_soa
+== Build Procedure
+* NOTE:  built RPMs of this and related projects can be found link:http://people.redhat.com/jbride/ose/INSTALL.txt[here]
+* If you are still interested in leveraging this project to build your own RPMs, then the following applies: 
 
- TO-DO
- 1)  add pre & post installs
- 2)  add documentation to /usr/share/doc 
+. clone this project from github
+. cd /path/to/this/jboss_bpm_soa_rpmbuild
+. cp /path/to/jboss-eap-6.1.1.zip SOURCES
+. rpmbuild --define "_sourcedir `pwd`/SOURCES" -ba SPECS/jboss_bpm_soa.spec
+. rpm -qlp ~/rpmbuild/RPMS/x86_64/jboss_bpm_soa-6.1.1-1.el6.x86_64.rpm
+. sudo rpm -ivh ~/rpmbuild/RPMS/x86_64/jboss_bpm_soa-6.1.1-1.el6.x86_64.rpm
+. sudo rpm -e jboss_bpm_soa
+
+== TO-DO
+.  add documentation to /usr/share/doc 
