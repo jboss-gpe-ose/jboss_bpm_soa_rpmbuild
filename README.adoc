@@ -39,7 +39,7 @@
 
 
 
-Proposed Architecture
+== Proposed Architecture
   - SOURCES/jboss_bpm_soa_package_mgmt.png provides an illustration of where this RPM fits into a software configuration architecture to support BPMS, BRMS and FSW.
   - it's proposed that the RPM from this project, jboss_bpm_soa, be included in the existing jbappplatform channel from RHN
   - the contents of this jboss_bpm_soa rpm install in:  /opt/jboss_bpm_soa
