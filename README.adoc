@@ -8,8 +8,8 @@
 . Red Hat / JBoss BPMS and FSW have a hard-dependency on JBoss EAP 6.1.1.
 
 == Why RPMs?
-* A frequent question is why rpms are needed, in particular for a PaaS environment,  for FSW and BPMS6 and not for other Red Hat middle-ware products.
-* Specifically, there are other RHT middle-ware cartridges that have no reliance on RPMs.  These cartridges include:  Fuse ESB, DV and Aerogear
+* A frequent question is why RPMs are needed (in particular for Openshift) for FSW and BPMS6 when RPMs are not needed for other Red Hat middle-ware products.
+Specifically, there are other RHT middle-ware cartridges that have no reliance on RPMs.  These cartridges include:  Fuse ESB, DV and Aerogear
 * The short answer is that these other RHT middle-ware cartridges are able to either pack in all of their dependencies within the cartridge itself or rely on RPM functionality already installed in an Openshift environment.  As discussed in the next section, the FSW and BPMS6 cartridges are not able to do so.
 
 == Alternatives
