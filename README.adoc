@@ -14,7 +14,7 @@ Specifically, there are other RHT middle-ware cartridges that have no reliance o
 
 == Alternatives
 . *Use RPMs via jbappplatform channel but don't upgrade*
-** Its technically feasible that a system administrator could elect to install JBoss EAP 6.1.1 and never upgrade
+** Its technically feasible that a RHEL system administrator could elect to install JBoss EAP 6.1.1 via the jbapplatform channel and never upgrade
 ** This would nicely facilitate products such as BPMS, BRMS and FSW that have a hard dependency on this particular version of JBoss EAP.
 ** This approach would be problematic however for other products that prefer either older or more current versions of JBoss EAP6.
 
