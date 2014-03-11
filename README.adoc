@@ -7,6 +7,11 @@
 . The RPMs in the jbappplatform RHN channel continously evolve and sys admins are free to upgrade thier environments as these upgrades to JBoss are released.
 . Red Hat / JBoss BPMS and FSW have a hard-dependency on JBoss EAP 6.1.1.
 
+== Why RPMs?
+* A frequent question is why rpms are needed, in particular for a PaaS environment,  for FSW and BPMS6 and not for other Red Hat middle-ware products.
+* Specifically, there are other RHT middle-ware cartridges that have no reliance on RPMs.  These cartridges include:  Fuse ESB, DV and Aerogear
+* The short answer is that these other RHT middle-ware cartridges are able to either pack in all of their dependencies within the cartridge itself or rely on RPM functionality already installed in an Openshift environment.  As discussed in the next section, the FSW and BPMS6 cartridges are not able to do so.
+
 == Alternatives
 . *Use RPMs via jbappplatform channel but don't upgrade*
 ** Its technically feasible that a system administrator could elect to install JBoss EAP 6.1.1 and never upgrade
@@ -19,13 +24,15 @@
 ** In this scenario, JBoss EAP 6.1.1 would be co-located in some manner with other versions of JBoss EAP on the same OSE node.
 ** Not quite sure what the time-line is for this feature to be rolled out in RHEL and Openshift
 
-. *Stuff everything in an Openshift "Downloadable" cartridge*
-** Openshift supports "downloadable" cartridges.
+. *Don't use RPMs*
+** Instead, stuff everything in an Openshift "Downloadable" cartridge*
 ** It is technically possible that this cartridge could bundle both JBoss EAP6.1.1 plus BPMS6
 ** The problem with this approach is :
 .. size of download makes for a long, network intensive experience to provision an OSE application
 .. once downloaded, the size of the contents included in this cartridge count against cgroups disk quota allocated by OSE
 *** one of the goals of this BPMS6 cartridge is to ensure that it fits comfortably in a medium-sized Openshift gear.
+*** currently, the default disk-size allocated to a medium-sized gear is 1 GB
+*** once BPMS6 is unzipped, the resultant jboss-eap6.1 directory comes out to:  1.3GB
 ** Subsequently, this approach is impractical for OSE environments hosting typical JBoss payloads such BPMS and FSW.
 
 
