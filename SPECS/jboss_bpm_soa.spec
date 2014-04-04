@@ -1,6 +1,6 @@
 Name:           jboss_bpm_soa
 Version:        6.1.1
-Release:        1%{?dist}
+Release:        3%{?dist}
 Summary:        JBoss EAP 6.1.1 used specifically to support BPMS6 and FSW for Openshift Enterprise
 Group:          Red Hat JBoss
 License:        GPLv3+

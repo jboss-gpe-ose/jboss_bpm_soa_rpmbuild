@@ -56,8 +56,8 @@ Build Procedure
   - cd /path/to/this/jboss_bpm_soa_rpmbuild
   - cp /path/to/jboss-eap-6.1.1.zip SOURCES
   - rpmbuild --define "_sourcedir `pwd`/SOURCES" -ba SPECS/jboss_bpm_soa.spec
-  - rpm -qlp ~/rpmbuild/RPMS/x86_64/jboss_bpm_soa-6.1.1-1.el6.x86_64.rpm
-  - sudo rpm -ivh ~/rpmbuild/RPMS/x86_64/jboss_bpm_soa-6.1.1-1.el6.x86_64.rpm
+  - rpm -qlp ~/rpmbuild/RPMS/x86_64/jboss_bpm_soa-6.1.1-3.el6.x86_64.rpm
+  - sudo rpm -ivh ~/rpmbuild/RPMS/x86_64/jboss_bpm_soa-6.1.1-3.el6.x86_64.rpm
   - sudo rpm -e jboss_bpm_soa
 
  TO-DO
